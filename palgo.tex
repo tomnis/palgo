@@ -1,0 +1,30 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{setspace}
+\author{Jesus Gonzalez, Tomas McCandless}
+\title{CS 388P Writeup}
+\date{October 9, 2012}
+\begin{document}
+\maketitle
+\hyphenpenalty=1000
+\doublespace
+
+jsdklshasdsf \cite{Gib99} \cite{Vlr03}
+
+Models of parallel computation should attempt to satisfy two goals that are in conflict: a model should be sufficiently abstract to allow algorithm designers to
+write programs that are simple and portable across architectures, and a model should also expose some low-level architectural details to allow for optimization. 
+The PRAM model is both widely used and simple, yet it has been criticized for being too high-level and thus failing to accurately model parallel machines.
+Specifically, the PRAM does not model realities of current parallel machines, such as bandwidth limitations. Similarly, network-based models such as the
+hypercube have been criticized for being too low-level, failing to be widely reflect the current technological state of parallel machines. 
+
+\singlespace
+\begin{thebibliography}{9}
+
+\bibitem[1]{Gib99} P. Gibbons, Y. Matias, V. Ramachandran. "Can a shared memory model serve as a bridging model for parallel computation?" Theory of Computing Systems Special Issue on papers from SPAA'97, vol. 32, no. 3, 1999, pp. 327-359
+\bibitem[2]{Vlr03} V. Ramachandran, B.Grayson, M. Dahlin.(2003) Emulations between QSM, BSP and LogP: A framework for general-purpose parallel algorithm design. Journal of Parallel and Distributed Computing, vol. 63, 2003, pp. 1175-1192. 
+\end{thebibliography}
+
+\end{document}
