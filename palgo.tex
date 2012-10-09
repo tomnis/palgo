@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass[12pt,a4paper]{article}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -11,20 +11,89 @@
 \maketitle
 \hyphenpenalty=1000
 \doublespace
+\newpage
 
-jsdklshasdsf \cite{Gib99} \cite{Vlr03}
+% k = max contention
+
+\section{Summary of Contributions}
+\section{Summary of Key Papers}
+\subsection{Can a Shared-Memory Model Serve as a Bridging Model for Parallel Computation?}
+A bridging model for parallel computation is a model that ``spans the range from algorithm design to architecture to hardware". \cite{Gib99}
+Such a model should provide an abstraction that is easy for algorithm designers to use, and should be realizable by hardware and system sofware at varying
+price/performance points.
 
 Models of parallel computation should attempt to satisfy two goals that are in conflict: a model should be sufficiently abstract to allow algorithm designers to
 write programs that are simple and portable across architectures, and a model should also expose some low-level architectural details to allow for optimization. 
 The PRAM model is both widely used and simple, yet it has been criticized for being too high-level and thus failing to accurately model parallel machines.
 Specifically, the PRAM does not model realities of current parallel machines, such as bandwidth limitations. Similarly, network-based models such as the
-hypercube have been criticized for being too low-level, failing to be widely reflect the current technological state of parallel machines. 
+hypercube have been criticized for being too low-level, failing to be widely reflective of the current technological state of parallel machines. 
+
+These shortcomings of existing models have led to the introduction of more intermediate models such as the BSP or LogP models.
+
+The new model this paper introduces, the QSM, is meant to be an attractive candidate for a bridging model. The QSM consists of processors with private
+individual memory in addition to a global shared memory.
+
+One goal for a 
+higher-level shared-memory model should be allowing efficient emulation on lower-level models which may be more realistic. 
+
+It is mistaken to view ``shared-memory model" as being synonymous with PRAM. The shared-memory abstraction refers to interprocessor communication. That is, a
+processor may have additional memory as part of its local state. While the PRAM does not model bandwidth limitations, a shared-memory model may be
+asynchronous, or have explicit charges for communication. 
+
+One of the primary motivations for positing a shared-memory model as a bridging model is the portability across memory architectures that accompanies such
+models. This is because the layout of memory is hidden by the model.
+
+The QSM model consists of a number of processors, each with private memory, that communicate via reading and writing to shared memory locations. Each
+synchronized phase executed by the processors consists of an arbitrary interleaving of the following operations:
+
+\begin{itemize}
+\item shared-memory reads: processor $P_i$ copies values from shared memory locations into private memory. 
+\item shared-memory writes: processor $P_i$ writes to $w_i$ shared memory locations.
+\item local computation: processor $P_i$ performs $c_i$ RAM computations which involve only private state and private memory.
+\end{itemize}
+
+The QSM has the following features which make it more attractive as a bridging model:
+
+\begin{itemize}
+\item shared-memory abstraction
+\item bulk-synchrony
+\item few parameters
+\item queue contention metric
+\item work-preserving emulation on BSP
+\item work-preserving emulation of BSP
+\end{itemize}
+
+The authors compare the QSM and the BSP in terms of their effectiveness as bridging models for parallel computation. The BSP consists of $p$ processor/memory
+components that communicate by sending point-to-point messages. The network supporting this communication is by two parameters: $g$, which models bandwidth;
+and $L$, which models latency. A computation on the BSP is a series of supersteps, each of which is separated by bulk synchronization.
+
+The authors give a work preserving emulation (an emulation is work-preserving if both models perform the same amount of work to within a constant factor) of
+the QSM on the BSP. However, since the QSM has fewer parameters than the BSP and does not deal directly with memory partitioning, we would expect it to be
+easier to design algorithms on the QSM. Designs can then be mapped onto the BSP with modest slowdown. 
+
+The ($d$, $\textbf{x}$)-BSP is more detailed in its modeling of memory contention than the BSP, and is characterized by 5 parameters:
+
+\begin{itemize}
+\item $p$ - number of processors
+\item $g$ - bandwidth
+\item $L$ - latency
+\item $d$ - delay, models gap at the memory banks
+\item $\textbf{x}$ - expansion, ratio of memory banks to processors
+\end{itemize}
+
+Developing a suitable model for parallel computation at a proper level of abstraction has remained a challenging problem for computer scientists. BSP and LogP
+have recently gained popularity as candidate bridging models. The QSM is an attractive candidate for a bridging model, in particular because it provides a
+simple shared memory abstraction and has a small number of parameters ($p$, the number of processors, and $g$, the bandwidth gap). Additionally, the QSM can be
+efficiently emulated on both the BSP and ($d$, $\textbf{x}$)-BSP.
+
+\section{Open Problems}
 
 \singlespace
+\newpage
 \begin{thebibliography}{9}
 
-\bibitem[1]{Gib99} P. Gibbons, Y. Matias, V. Ramachandran. "Can a shared memory model serve as a bridging model for parallel computation?" Theory of Computing Systems Special Issue on papers from SPAA'97, vol. 32, no. 3, 1999, pp. 327-359
-\bibitem[2]{Vlr03} V. Ramachandran, B.Grayson, M. Dahlin.(2003) Emulations between QSM, BSP and LogP: A framework for general-purpose parallel algorithm design. Journal of Parallel and Distributed Computing, vol. 63, 2003, pp. 1175-1192. 
+\bibitem[1]{Gib99} P. Gibbons, Y. Matias, V. Ramachandran. ``Can a shared memory model serve as a bridging model for parallel computation?" Theory of Computing Systems Special Issue on papers from SPAA'97, vol. 32, no. 3, 1999, pp. 327-359
+\bibitem[2]{Vlr03} V. Ramachandran, B.Grayson, M. Dahlin.(2003) ``Emulations between QSM, BSP and LogP: A framework for general-purpose parallel algorithm design." Journal of Parallel and Distributed Computing, vol. 63, 2003, pp. 1175-1192. 
 \end{thebibliography}
 
 \end{document}
