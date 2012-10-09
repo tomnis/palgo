@@ -16,6 +16,19 @@
 % k = max contention
 
 \section{Summary of Contributions}
+
+\subsection{Can a Shared-Memory Model Serve as a Bridging Model for Parallel Computation?}
+A bridging model for parallel computation is a model that ``spans the range from algorithm design to architecture to hardware". \cite{Gib99}
+Such a model should provide an abstraction that is easy for algorithm designers to use, and should be realizable by hardware and system sofware at varying
+price/performance points.
+The new model this paper introduces, the QSM, is meant to be an attractive candidate for a bridging model. The QSM consists of processors with private
+individual memory in addition to a global shared memory.
+The authors give a work preserving emulation (an emulation is work-preserving if both models perform the same amount of work to within a constant factor) of
+the QSM on the BSP. However, since the QSM has fewer parameters than the BSP and does not deal directly with memory partitioning, we would expect it to be
+easier to design algorithms on the QSM. Designs can then be mapped onto the BSP with modest slowdown. 
+
+\subsection{Emulations between QSM, BSP and LogP: A framework for general-purpose parallel algorithm design. \cite{Vlr03}}
+
 \section{Summary of Key Papers}
 \subsection{Can a Shared-Memory Model Serve as a Bridging Model for Parallel Computation?}
 A bridging model for parallel computation is a model that ``spans the range from algorithm design to architecture to hardware". \cite{Gib99}
@@ -81,6 +94,11 @@ The ($d$, $\textbf{x}$)-BSP is more detailed in its modeling of memory contentio
 \item $\textbf{x}$ - expansion, ratio of memory banks to processors
 \end{itemize}
 
+The authors also present a work-preserving emulation of the QSM on the ($d$, $\textbf{x}$)-BSP when $\textbf{x} \geq d / g$.
+
+Additionally, a work-preserving emulation of the BSP on the QSM is presented. This emulation has a probability of failure equal to
+$1/n^\delta$, for some $\delta > 0$. 
+
 Developing a suitable model for parallel computation at a proper level of abstraction has remained a challenging problem for computer scientists. BSP and LogP
 have recently gained popularity as candidate bridging models. The QSM is an attractive candidate for a bridging model, in particular because it provides a
 simple shared memory abstraction and has a small number of parameters ($p$, the number of processors, and $g$, the bandwidth gap). Additionally, the QSM can be
@@ -128,7 +146,14 @@ s-QSM is a variation of QSM where the time cost of a phase is $max(m_{op}, gm_{r
 \newpage
 \section{Open Problems}
 
+If we restrict ourselves to a slowdown bounded by $polylog(n)$, there is not a known work-preserving emulation of a BSP with $g=1$ on the EREW
+PRAM. However, if an emulation satisfying these properties were to be discovered, it would imply the existence of randomized algorithms with
+linear work and polylog time for certain problems, such as computing a random permutation. In other words, even though the EREW PRAM is often
+considered to be a stronger model than the BSP, the EREW PRAM may have less expressive power in some cases. \cite{Gib99}
 
+Similarly, no work-preserving emulation of a CRCW PRAM on a BSP with $g=1$ is known if we require a $polylog(n)$ slowdown. In other words,
+though the authors have presented a strong correspondence between the QSM and the BSP, such a strong correspondence between the BSP and PRAMs
+that have an additional $g$ parameter is not known.
 \newpage
 \singlespace
 \begin{thebibliography}{9}

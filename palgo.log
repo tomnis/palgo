@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2012.10.5)  8 OCT 2012 21:01
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2012.10.5)  9 OCT 2012 16:14
 entering extended mode
  %&-line parsing enabled.
 **palgo.tex
@@ -137,25 +137,35 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 [1
 
 {/v/filer4b/software/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-] [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 50.
- (/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 50.
-
-[3] [4]
-Overfull \hbox (7.12764pt too wide) in paragraph at lines 90--90
+]
+Overfull \hbox (7.12764pt too wide) in paragraph at lines 30--30
 []\OT1/cmr/bx/n/14.4 Emulations be-tween QSM, BSP and LogP: A frame-
  []
 
 
-Overfull \hbox (0.93788pt too wide) in paragraph at lines 90--90
+Overfull \hbox (0.93788pt too wide) in paragraph at lines 30--30
 \OT1/cmr/bx/n/14.4 work for general-purpose par-al-lel al-go-rithm de-sign.
  []
 
-[5] [6] [7] [8] [9] [10] (./palgo.aux) )
+[2] [3]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 63.
+ (/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
+
+[4] [5]
+Overfull \hbox (7.12764pt too wide) in paragraph at lines 108--108
+[]\OT1/cmr/bx/n/14.4 Emulations be-tween QSM, BSP and LogP: A frame-
+ []
+
+
+Overfull \hbox (0.93788pt too wide) in paragraph at lines 108--108
+\OT1/cmr/bx/n/14.4 work for general-purpose par-al-lel al-go-rithm de-sign.
+ []
+
+[6] [7] [8] [9] [10] [11] (./palgo.aux) )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 13 (\begingroup)
@@ -167,7 +177,7 @@ Here is how much of TeX's memory you used:
  4522 multiletter control sequences out of 10000+50000
  13380 words of font info for 51 fonts, out of 3000000 for 5000
  714 hyphenation exceptions out of 8191
- 27i,6n,22p,388b,226s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,6n,22p,388b,228s stack positions out of 5000i,500n,10000p,200000b,50000s
 </v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesk
 y/cm/cmbx12.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesk
 y/cm/cmmi12.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesk
@@ -176,9 +186,9 @@ y/cm/cmmi8.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky
 cm/cmr17.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/c
 m/cmsy10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/c
 m/cmti12.pfb>
-Output written on palgo.pdf (10 pages, 57231 bytes).
+Output written on palgo.pdf (11 pages, 62303 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
