@@ -5,7 +5,7 @@
 \usepackage{amssymb}
 \usepackage{setspace}
 \author{Jesus Gonzalez, Tomas McCandless}
-\title{CS 388P Writeup}
+\title{CS 388P Write up}
 \date{October 9, 2012}
 \begin{document}
 \maketitle
@@ -40,7 +40,7 @@ bridging model, and shows that the QSM can serve as an adequate model for design
 
 \subsection{Can a Shared-Memory Model Serve as a Bridging Model for Parallel Computation?}
 A bridging model for parallel computation is a model that ``spans the range from algorithm design to architecture to hardware". \cite{Gib99}
-Such a model should provide an abstraction that is easy for algorithm designers to use, and should be realizable by hardware and system sofware at varying
+Such a model should provide an abstraction that is easy for algorithm designers to use, and should be realizable by hardware and system software at varying
 price/performance points.
 The new model this paper introduces, the QSM, is meant to be an attractive candidate for a bridging model. The QSM consists of processors with private
 individual memory in addition to a global shared memory.
@@ -49,11 +49,17 @@ the QSM on the BSP. However, since the QSM has fewer parameters than the BSP and
 easier to design algorithms on the QSM. Designs can then be mapped onto the BSP with modest slowdown. 
 
 \subsection{Emulations between QSM, BSP and LogP: A framework for general-purpose parallel algorithm design. \cite{Vlr03}}
+The authors present work-preserving emulations with just a small slowdown between the general-purpose models: LogP, BSP and QSM. The relevance of this lies 
+on the simplicity of the QSM model, which makes it easy to program for and, yet, through emulation on more realistic models like BSP and LogP run an 
+algorithm with just a logarithmic slowdown.
+
+The authors present 3 algorithms for basic problems (prefix sums, sample sort and list ranking). All of them are optimal and simulations show that the 
+predicted performance for each of them very close, with just insignificant discrepancy.
 
 \section{Summary of Key Papers}
 \subsection{Can a Shared-Memory Model Serve as a Bridging Model for Parallel Computation?}
 A bridging model for parallel computation is a model that ``spans the range from algorithm design to architecture to hardware". \cite{Gib99}
-Such a model should provide an abstraction that is easy for algorithm designers to use, and should be realizable by hardware and system sofware at varying
+Such a model should provide an abstraction that is easy for algorithm designers to use, and should be realizable by hardware and system software at varying
 price/performance points.
 
 Models of parallel computation should attempt to satisfy two goals that are in conflict: a model should be sufficiently abstract to allow algorithm designers to
@@ -127,11 +133,12 @@ efficiently emulated on both the BSP and ($d$, $\textbf{x}$)-BSP.
 
 
 \subsection{Emulations between QSM, BSP and LogP: A framework for general-purpose parallel algorithm design. \cite{Vlr03}}
-The authors present work-preserving emulations with just a small slowdown between the geneal-purpose models: LogP, BSP and QSM. The relevance of this lies on the simplicity of the QSM model, which makes it easy to program for and, yet, through emulation on more realistic models like BSP and LogP run an algorithm with just a logarithmic slowdown.
 
-The authors present 3 algorithms for basic problems (prefix sums, sample sort and list ranking). All of them are optimal and simulations show that the predicted performance for each of them is accurate.
+PRAM is a very simple model for parallel computer that abstracts too much parameters from real machines, which turns into apparently eficcient models that 
+actually run slow on real machines. Therefore, exists the need of more realistic models that reflect with more fidelity a machine and yet is not to 
+complicated so that implementation is kept simple and portable. BSP and LogP are models that abstract more accurately than the PRAM model a machine, 
+but there is a simple model, QSM, which could be used instead, since it is posibble to efficiently emulate it on LogP and BSP.
 
-PRAM is a very simple model for parallel computer that abstracts too much parameters from real machines, which turns into apparently eficcient models that turn to run slowly on real machines. Therefore, exists the need of more realistic models that reflect with more fidelity a machine and yet is not to complicated so that implementation is kept simple.
 \subsubsection{Brief description of the models}
 Al the next models have work measured as the time-processors product.
 \paragraph{BSP}
@@ -141,7 +148,9 @@ BSP (Bulk-Synchronous Parallel) takes 3 parameters:
 	\item Bandwidth g.
 	\item Latency L.
 \end{itemize}
-A computation in this model consists of a sequence of supersteps, each separated by a bulk synchronization. In each superstep, a component can perform local computations, send and receive a set of messages. The cost \textit T superstep is calculated as $T = max(w, gh, L)]$ and the overal time that takes an algorithm to run is the sum of T of every superstep.
+A computation in this model consists of a sequence of supersteps, each separated by a bulk synchronization. In each superstep, a component can perform 
+local computations, send and receive a set of messages. The cost \textit T superstep is calculated as $T = max(w, gh, L)]$ and the overall time 
+that takes an algorithm to run is the sum of T of every superstep.
 \paragraph{LogP}
 LogP (Latency, overhead, gap, Processors) takes 4 parameters and a derived value:
 \begin{itemize}
@@ -151,18 +160,36 @@ LogP (Latency, overhead, gap, Processors) takes 4 parameters and a derived value
 	\item Overhead o: Time taken by a processor to send or receive a message.
 	\item Capacity constraint: Maximum number of messagings heading to the same processor can't be larger than $\lceil l/g \rceil$
 \end{itemize}
-Once a processor has reached its capacity, another processor trying to send a message will stall. The time taken by a LogP algorithm is the longest time taken by any processor to end its operation.
+Once a processor has reached its capacity, another processor trying to send a message will stall. The time taken by a LogP algorithm is the longest 
+time taken by any processor to end its operation.
 \paragraph{QSM}
-QSM (Queuing Shared Memory) consists of p processors that communicate through shared memory, but run computations on private memory. An algorithm consists of the analogous for a superstep on BSP, a synchronized phase. Concurrent reads and concurrent writes are permited on a single synchronized phase over the same shared-memory location, but not both.
+QSM (Queuing Shared Memory) consists of p processors that communicate through shared memory, but run computations on private memory. An algorithm consists 
+of the analogous for a superstep on BSP, a synchronized phase. Concurrent reads and concurrent writes are permitted on a single synchronized phase 
+over the same shared-memory location, but not both.
 Metrics:
 \begin{itemize}
 	\item Processors p.
 	\item Maximum contention k: of a synchronized phase Largest number of processors reading or writing a location.
 \end{itemize}
-The time cost of a phase is $max(m_{op}, gm_{rw}, k)$, where $m_{op}= $ maximum operations performed by any processor and $m_{rw}=$maximum read/write operations performed by any processor. The time taken by an algorithm is the sum of the cost of all of its phases.
+The time cost of a phase is $max(m_{op}, gm_{rw}, k)$, where $m_{op}= $ maximum operations performed by any processor and $m_{rw}=$maximum read/write 
+operations performed by any processor and $k=$ \textit{maximum contention}. The time taken by an algorithm is the sum of the cost of all of its phases.
 s-QSM is a variation of QSM where the time cost of a phase is $max(m_{op}, gm_{rw}, gk)$
 
+\subsubsection{Emulations}
+The paper, in addition with results obtained in other two papers, show emulations for: LogP, s-QSM and QSM on BSP. BSP, sQSM and QSM on LogP. BSP 
+and LogP on S-QSM. BSP, LogP and s-QSM on QSM. All of them are work-preserving emulations.
 
+\subsubsection{Algorithms}
+In this section, the authors present optimal algorithms for prefix sums, sample sort and list ranking on QSM. This way, they show that QSM may be 
+considered a general-purpose model. They also present a particular cost metric for QSM algorithms: number of phases; the authors claim that the time 
+spent on synchronization is proportional to the number of phases, and, since QSM doesn't takes directly into account latency and synchronization cost,
+it should be considered indirectly with this metric. All the algorithms they present have a number of phases independent to the size of the 
+input (See open problems).
+
+\subsubsection{Experimental results}
+As stated previously, emulations between all the models are work-preserving, which supports the use of QSM as a model. The estimated costs 
+of emulating QSM are confirmed by experiments run on Armadillo, a framework for simulating multiprocessor machines, but with a discrepancy on 
+the predicted and actual communication cost, which occurs to be irrelevant compared with the total computation cost with large problems.
 
 \newpage
 \section{Open Problems}
@@ -175,6 +202,17 @@ considered to be a stronger model than the BSP, the EREW PRAM may have less expr
 Similarly, no work-preserving emulation of a CRCW PRAM on a BSP with $g=1$ is known if we require a $polylog(n)$ slowdown. In other words,
 though the authors have presented a strong correspondence between the QSM and the BSP, such a strong correspondence between the BSP and PRAMs
 that have an additional $g$ parameter is not known.
+
+The main problem that parallel models are currently facing is: Is there a method that can automatically optimize the code generated for a 
+model so that the hidden parameters become irrelevant for any algorithm? Is communication sufficiently optimizable or at least irrelevant for 
+any algorithm given a large problem size? Could any problem be solved in few phases, referring to QSM.
+
+A related question arise from the results of {Vlr03}: Would emulations correctly predict the total cost for algorithms with high level of 
+communication? Will the emulations still be valid for machines with massive number of processors? Neural network simulation, for example, is naturally 
+benefited from a massive number of processors and heavily relies on communication between them. Of course it is a radical example and reducing the 
+number of phases could be very challenging, if not impossible at all, but it shows that a method to analyze the nature of a problem is needed in order 
+to know if QSM is applicable.
+
 \newpage
 \singlespace
 \begin{thebibliography}{9}
