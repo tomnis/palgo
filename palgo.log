@@ -1,21 +1,25 @@
-This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2012.10.5)  9 OCT 2012 16:14
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  9 OCT 2012 23:08
 entering extended mode
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **palgo.tex
 (./palgo.tex
-LaTeX2e <2005/12/01>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
-abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
-h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
-greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
-tin, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, r
-omanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turki
-sh, ukenglish, ukrainian, uppersorbian, welsh, loaded.
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
+lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
+welsh, loaded.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -29,32 +33,32 @@ File: size12.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2006/05/05 v1.1b Input encoding file
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2006/05/05 v1.1b Input encoding file
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2008/03/30 v1.1d Input encoding file
 ))
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen103
 ))
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen104
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count87
@@ -95,21 +99,20 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2001/10/25 v2.2f
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2002/01/22 v2.2d
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/setspace/setspace.sty
-Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
-
-Package: `setspace' 6.7 <2000/12/01>
-) (./palgo.aux)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(./palgo.aux)
 \openout1 = `palgo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -125,70 +128,73 @@ LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Try loading font information for U+msa on input line 11.
-
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 11.
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2002/01/19 v2.2g AMS font definitions
-)
-[1
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+) [1
 
-{/v/filer4b/software/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-]
-Overfull \hbox (7.12764pt too wide) in paragraph at lines 30--30
-[]\OT1/cmr/bx/n/14.4 Emulations be-tween QSM, BSP and LogP: A frame-
- []
-
-
-Overfull \hbox (0.93788pt too wide) in paragraph at lines 30--30
-\OT1/cmr/bx/n/14.4 work for general-purpose par-al-lel al-go-rithm de-sign.
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (1.24625pt too wide) in paragraph at lines 27--27
+[]\OT1/cmr/bx/n/14.4 A Gen-eral Pur-pose Shared Mem-ory Model for Par-
  []
 
 [2] [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 63.
- (/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 63.
-
-[4] [5]
-Overfull \hbox (7.12764pt too wide) in paragraph at lines 108--108
+Overfull \hbox (7.12764pt too wide) in paragraph at lines 51--51
 []\OT1/cmr/bx/n/14.4 Emulations be-tween QSM, BSP and LogP: A frame-
  []
 
 
-Overfull \hbox (0.93788pt too wide) in paragraph at lines 108--108
+Overfull \hbox (0.93788pt too wide) in paragraph at lines 51--51
 \OT1/cmr/bx/n/14.4 work for general-purpose par-al-lel al-go-rithm de-sign.
  []
 
-[6] [7] [8] [9] [10] [11] (./palgo.aux) )
+[4] [5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 90.
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 90.
+ [6]
+[7]
+Overfull \hbox (7.12764pt too wide) in paragraph at lines 135--135
+[]\OT1/cmr/bx/n/14.4 Emulations be-tween QSM, BSP and LogP: A frame-
+ []
+
+
+Overfull \hbox (0.93788pt too wide) in paragraph at lines 135--135
+\OT1/cmr/bx/n/14.4 work for general-purpose par-al-lel al-go-rithm de-sign.
+ []
+
+[8] [9] [10] [11] [12] [13] [14] [15] (./palgo.aux) )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 13 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 1228 strings out of 493876
- 14633 string characters out of 1147346
- 63305 words of memory out of 3000000
- 4522 multiletter control sequences out of 10000+50000
- 13380 words of font info for 51 fonts, out of 3000000 for 5000
- 714 hyphenation exceptions out of 8191
- 27i,6n,22p,388b,228s stack positions out of 5000i,500n,10000p,200000b,50000s
-</v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesk
-y/cm/cmbx12.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesk
-y/cm/cmmi12.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesk
-y/cm/cmmi8.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky
-/cm/cmr12.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/
-cm/cmr17.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/c
-m/cmsy10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/c
-m/cmti12.pfb>
-Output written on palgo.pdf (11 pages, 62303 bytes).
+ 1229 strings out of 493488
+ 14329 string characters out of 3141326
+ 63850 words of memory out of 3000000
+ 4560 multiletter control sequences out of 15000+200000
+ 13371 words of font info for 51 fonts, out of 3000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 27i,6n,22p,253b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r17.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
+2.pfb>
+Output written on palgo.pdf (15 pages, 104657 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 131072)
+ 81 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
