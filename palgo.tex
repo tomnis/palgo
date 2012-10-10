@@ -17,6 +17,27 @@
 
 \section{Summary of Contributions}
 
+\subsection{A Bridging Model for Parallel Computation}
+The author of this paper notes that the von Neumann model has traditionally served as a bridging model for sequential computation in the sense that it
+enables hardware designers to share a common goal, and it allows software designers to write efficient programs without explicit consideration of the
+underlying hardware. Similarly, a bridging model for parallel computation is necessary if we wish for general purpose parallel computation to succeed.
+To this end, the author introduces the BSP (bulk-synchronous parallel) model as a potential candidate for a parallel bridging model. The BSP contains a
+number of processor/memory components, a router that delivers messages between pairs of components, and a facility for synchronization.
+
+\subsection{A General Purpose Shared Memory Model for Parallel Computation}
+The large amount of diversity in parallel architectures has made the design of a general purpose parallel model an important yet challenging task. In
+the past, designers have generally chosen to either design algorithms for the PRAM, or to design for a distributed memory architecture, modifying the
+algorithm as necessary to account for the topology of the network. The former approach ignores bandwidth limitations of machines, while the latter
+approach yields algorithms that are designed for a specific network topology rather than a general network. This paper defines the QSM model, presents
+some algorithmic results for well known problems, and presents a work-preserving emulation of the QSM on the BSP.
+
+\subsection{What Good are Shared Memory Models?}
+Shared memory models have been useful in the past, but they have the shortcoming of failing to model bandwidth limitations of machines. The QSM model
+accounts for bandwidth limitations while providing a shared memory abstraction. This is important in part because a shared memory abstraction is easier
+to use than a distributed memory or message passing architecture.
+This paper provides a fairly nontechnical overview of recent developments, discusses the attractive features of the QSM model as a candidate for a
+bridging model, and shows that the QSM can serve as an adequate model for designing algorithms on certain Cray machines.
+
 \subsection{Can a Shared-Memory Model Serve as a Bridging Model for Parallel Computation?}
 A bridging model for parallel computation is a model that ``spans the range from algorithm design to architecture to hardware". \cite{Gib99}
 Such a model should provide an abstraction that is easy for algorithm designers to use, and should be realizable by hardware and system sofware at varying
@@ -160,6 +181,10 @@ that have an additional $g$ parameter is not known.
 
 \bibitem[1]{Gib99} P. Gibbons, Y. Matias, V. Ramachandran. ``Can a shared memory model serve as a bridging model for parallel computation?" Theory of Computing Systems Special Issue on papers from SPAA'97, vol. 32, no. 3, 1999, pp. 327-359
 \bibitem[2]{Vlr03} V. Ramachandran, B.Grayson, M. Dahlin.(2003) ``Emulations between QSM, BSP and LogP: A framework for general-purpose parallel algorithm design." Journal of Parallel and Distributed Computing, vol. 63, 2003, pp. 1175-1192. 
+\bibitem[3]{Val90} L. G. Valiant. ``A Bridging Model for Parallel Computation." (1990) Communications of the ACM, 33(8) pp. 103-111
+\bibitem[4]{Vlr97} V. Ramachandran. ``A General Purpose Shared Memory Model for Parallel Computation" Algorithms for Parallel Processing, vol. 105. IMA
+Volumes in Mathematics and Its Applications
+\bibitem[5]{Gib96} P. B. Gibbons. ``What Good are Shared Memory Models?" (1996) ICPP Workshop on Challenges for Parallel Processing
 \end{thebibliography}
 
 \end{document}
