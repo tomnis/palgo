@@ -134,10 +134,10 @@ efficiently emulated on both the BSP and ($d$, $\textbf{x}$)-BSP.
 
 \subsection{Emulations between QSM, BSP and LogP: A framework for general-purpose parallel algorithm design. \cite{Vlr03}}
 
-PRAM is a very simple model for parallel computer that abstracts too much parameters from real machines, which turns into apparently eficcient models that 
+PRAM is a very simple model for parallel computer that abstracts too much parameters from real machines, which turns into apparently efficient models that 
 actually run slow on real machines. Therefore, exists the need of more realistic models that reflect with more fidelity a machine and yet is not to 
 complicated so that implementation is kept simple and portable. BSP and LogP are models that abstract more accurately than the PRAM model a machine, 
-but there is a simple model, QSM, which could be used instead, since it is posibble to efficiently emulate it on LogP and BSP.
+but there is a simple model, QSM, which could be used instead, since it is possible to efficiently emulate it on LogP and BSP.
 
 \subsubsection{Brief description of the models}
 Al the next models have work measured as the time-processors product.
@@ -158,7 +158,7 @@ LogP (Latency, overhead, gap, Processors) takes 4 parameters and a derived value
 	\item Latency l: Time taken by network to transmit a message from one processor to another is at most l.
 	\item Gap g: Least units of time taken between sending or reception of a message by a processor.
 	\item Overhead o: Time taken by a processor to send or receive a message.
-	\item Capacity constraint: Maximum number of messagings heading to the same processor can't be larger than $\lceil l/g \rceil$
+	\item Capacity constraint: Maximum number of messages heading to the same processor can't be larger than $\lceil l/g \rceil$
 \end{itemize}
 Once a processor has reached its capacity, another processor trying to send a message will stall. The time taken by a LogP algorithm is the longest 
 time taken by any processor to end its operation.
