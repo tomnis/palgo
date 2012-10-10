@@ -17,28 +17,28 @@
 
 \section{Summary of Contributions}
 
-\subsection{A Bridging Model for Parallel Computation}
+\subsection{A Bridging Model for Parallel Computation \cite{Val90}}
 The author of this paper notes that the von Neumann model has traditionally served as a bridging model for sequential computation in the sense that it
 enables hardware designers to share a common goal, and it allows software designers to write efficient programs without explicit consideration of the
 underlying hardware. Similarly, a bridging model for parallel computation is necessary if we wish for general purpose parallel computation to succeed.
 To this end, the author introduces the BSP (bulk-synchronous parallel) model as a potential candidate for a parallel bridging model. The BSP contains a
 number of processor/memory components, a router that delivers messages between pairs of components, and a facility for synchronization.
 
-\subsection{A General Purpose Shared Memory Model for Parallel Computation}
+\subsection{A General Purpose Shared Memory Model for Parallel Computation \cite{Vlr97}}
 The large amount of diversity in parallel architectures has made the design of a general purpose parallel model an important yet challenging task. In
 the past, designers have generally chosen to either design algorithms for the PRAM, or to design for a distributed memory architecture, modifying the
 algorithm as necessary to account for the topology of the network. The former approach ignores bandwidth limitations of machines, while the latter
 approach yields algorithms that are designed for a specific network topology rather than a general network. This paper defines the QSM model, presents
 some algorithmic results for well known problems, and presents a work-preserving emulation of the QSM on the BSP.
 
-\subsection{What Good are Shared Memory Models?}
+\subsection{What Good are Shared Memory Models? \cite{Gib96}}
 Shared memory models have been useful in the past, but they have the shortcoming of failing to model bandwidth limitations of machines. The QSM model
 accounts for bandwidth limitations while providing a shared memory abstraction. This is important in part because a shared memory abstraction is easier
 to use than a distributed memory or message passing architecture.
 This paper provides a fairly nontechnical overview of recent developments, discusses the attractive features of the QSM model as a candidate for a
 bridging model, and shows that the QSM can serve as an adequate model for designing algorithms on certain Cray machines.
 
-\subsection{Can a Shared-Memory Model Serve as a Bridging Model for Parallel Computation?}
+\subsection{Can a Shared-Memory Model Serve as a Bridging Model for Parallel Computation? \cite{Gib99}}
 A bridging model for parallel computation is a model that ``spans the range from algorithm design to architecture to hardware". \cite{Gib99}
 Such a model should provide an abstraction that is easy for algorithm designers to use, and should be realizable by hardware and system software at varying
 price/performance points.
@@ -134,13 +134,13 @@ efficiently emulated on both the BSP and ($d$, $\textbf{x}$)-BSP.
 
 \subsection{Emulations between QSM, BSP and LogP: A framework for general-purpose parallel algorithm design. \cite{Vlr03}}
 
-PRAM is a very simple model for parallel computer that abstracts too much parameters from real machines, which turns into apparently efficient models that 
-actually run slow on real machines. Therefore, exists the need of more realistic models that reflect with more fidelity a machine and yet is not to 
-complicated so that implementation is kept simple and portable. BSP and LogP are models that abstract more accurately than the PRAM model a machine, 
+PRAM is a very simple model for parallel computation that abstracts too many parameters from real machines, which turns into apparently efficient models that 
+actually run slow on real machines. Therefore, there exists the need of more realistic models that reflect with more fidelity a machine and yet is not too 
+complicated so that implementation is kept simple and portable. BSP and LogP are models that abstract current machines more accurately than the PRAM, 
 but there is a simple model, QSM, which could be used instead, since it is possible to efficiently emulate it on LogP and BSP.
 
 \subsubsection{Brief description of the models}
-Al the next models have work measured as the time-processors product.
+All the next models have work measured as the time-processors product.
 \paragraph{BSP}
 BSP (Bulk-Synchronous Parallel) takes 3 parameters:
 \begin{itemize}
@@ -189,7 +189,7 @@ input (See open problems).
 \subsubsection{Experimental results}
 As stated previously, emulations between all the models are work-preserving, which supports the use of QSM as a model. The estimated costs 
 of emulating QSM are confirmed by experiments run on Armadillo, a framework for simulating multiprocessor machines, but with a discrepancy on 
-the predicted and actual communication cost, which occurs to be irrelevant compared with the total computation cost with large problems.
+the predicted and actual communication cost, which occurs to be irrelevant compared with the total computation cost for large problems.
 
 \newpage
 \section{Open Problems}
@@ -208,9 +208,9 @@ model so that the hidden parameters become irrelevant for any algorithm? Is comm
 any algorithm given a large problem size? Could any problem be solved in few phases, referring to QSM.
 
 A related question arise from the results of {Vlr03}: Would emulations correctly predict the total cost for algorithms with high level of 
-communication? Will the emulations still be valid for machines with massive number of processors? Neural network simulation, for example, is naturally 
-benefited from a massive number of processors and heavily relies on communication between them. Of course it is a radical example and reducing the 
-number of phases could be very challenging, if not impossible at all, but it shows that a method to analyze the nature of a problem is needed in order 
+communication? Will the emulations still be valid for machines with massive number of processors? Neural network simulation, for example, naturally 
+benefits from a massive number of processors and heavily relies on communication between them. Of course it is a radical example and reducing the 
+number of phases could be very challenging, if not impossible, but it shows that a method to analyze the nature of a problem is needed in order 
 to know if QSM is applicable.
 
 \newpage
