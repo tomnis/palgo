@@ -213,6 +213,99 @@ benefits from a massive number of processors and heavily relies on communication
 number of phases could be very challenging, if not impossible, but it shows that a method to analyze the nature of a problem is needed in order 
 to know if QSM is applicable.
 
+% theorem jesus will present
+\newpage
+\section{Emulation of BSP on LogP}
+
+
+% theorem tomas will present
+\newpage
+\section{Emulation of LogP on BSP}
+
+\emph{Theorem 1:}
+There is a deterministic work-preserving emulation of a p-processor non-stalling LogP on BSP with slowdown $O(L/l)$.
+(Theorem $3.7$ in \cite{Vlr03})\\
+
+\noindent \emph{Theorem 2: }
+There is no deterministic work-preserving step-by-step emulation of a p-processor stalling LogP on BSP.
+(Theorem $3.9b$ in \cite{Vlr03})\\
+
+\noindent\emph{Proof of Theorem 1:} 
+The emulation is as follows:
+\begin{itemize}
+\item Map the LogP processors evenly among the BSP processors, so that each BSP processor is assigned $L/l$ LogP processors.
+\item Divide the LogP computation into blocks of computation of length $l$.
+\item Let each BSP processor emulate the steps performed by each LogP processor in the current block of computation.
+\end{itemize}
+
+Since each BSP processor is assigned $L/l$ LogP processors, the BSP has a total of $(l/L)P$ processors.
+Note that the emulation of each block will take 2 BSP supersteps. Each block of LogP computation
+is of length $l$, and each message takes exactly $l$ units of time to each its destination, so messages sent within block $i$ will arrive at
+their destinations within block $i+1$. In the BSP emulation, each BSP processor adds an additional tag to each message; this tag stores the LogP
+step in which the message was sent. A BSP processor examines the messages it received from the previous block, sorts them by tags in $O(L)$ time,
+using counting sort, and processes the received messages in sorted order. This means that the emulation executes each of the LogP steps in the same
+order as the original LogP execution.
+
+The analysis of the time cost of emulating one block is as follows:\\
+Recall that the time cost of a single BSP superstep is $w + gh + L$, where $w$ is the maximum number of local operations performed by any
+processor and $h$ is the maximum number of messages sent or received by any processor. In this case $w \leq (L / l)l = L$, since each BSP processor
+is responsible for emulating the local computations of $L/l$ LogP processors across a block of length $l$. The number of messages sent by a BSP
+processor is at most $L/g$, because each of the emulated $L/l$ processors can send at most $l/g$ messages during a block of length $l$. Similarly,
+since the LogP computation under consideration is non-stalling,
+the number of messages received by a BSP processor is at most $L/g$. Thus, $h \leq L/g$, from which it follows that the time cost of emulating one
+LogP block is $O(L)$. However, the time cost of one block under the original LogP execution is $O(l)$, which means that the slowdown of the
+emulation is $O(L/l)$.
+
+The work cost of one block under the original LogP execution is $O(pl)$. The work cost of one block under the BSP emulation is 
+$O((l/L)p \cdot L) = O(pl)$. Hence, the emulation is work-preserving. This completes the proof of Theorem 1.\\
+
+
+\noindent\emph{Proof of Theorem 2:}
+Consider the following computation, to be run on a LogP with $p = r \cdot (q + 1)$ processors, grouped into $r$ groups of $q$ processors and one
+group of $r$ processors ($p_{i, j} \mbox{ for } 1 \leq i \leq r$ denotes the $j$th processor in group $i$; and $P_i$ denotes the $i$th processor in
+the group with $r$ processors):
+
+\noindent\textbf{pfor} $1 \leq j \leq r$ \\
+\indent $p_{1, j}$ sends a message to processor $p_{2, j}$ \\
+\indent $p_{1, j}$ sends a message to processor $P_1$\\
+\textbf{end} \\
+\textbf{pfor} $2 \leq i \leq r$ \\
+\indent \textbf{pfor} $1 \leq j \leq q $ \\
+\indent \indent \textbf{if processor} $p_{i, j}$ receives a message from processor $p_{(i-1), j}$ \textbf{then} \\
+\indent \indent \indent \textbf{if} $i < r$: \\
+\indent \indent \indent \indent processor $p_{i, j}$ sends a message to processor $p_{(i+1), j}$ \\
+\indent \indent \indent \textbf{end} \\
+\indent \indent \indent processor $p_{i, j}$ sends a message to processor $P_i$ \\
+\indent \indent \textbf{end} \\
+\indent \textbf{end} \\
+\textbf{end} \\
+
+\noindent \emph{Claim:} The above computation takes time $O(r \cdot l + g \cdot q)$ on the LogP, but when emulated on the BSP takes time 
+$\Omega (r \cdot (L + g \cdot q)) $.
+
+\noindent \emph{Proof:} At time $(i-1)l + g$, all processors in the $i$th group send a message to processor $P_i$ (note that when $q$, the size of
+each of the $r$ groups, exceeds $l/g$, this is a stalling LogP computation). Processor $P_i$, however, will not receive these messages until time $i
+\cdot l + g \cdot q$. Then, the computation will terminate at time $r \cdot l + g \cdot q$, when $P_r$ receives all messages. 
+
+\noindent However, on the BSP, this computation must be executed in $r$ supersteps. On the BSP, any send based on the condition of receiving a
+message in the current superstep cannot be executed in the same superstep. This means that the processors in group $i$, for $2 \leq i < r$ can send
+messages only after having received a message from a processor in group $i-1$. Furthermore, note that in each superstep, $q$ messages are received
+by some processor ($P_i$ in superstep $i$). Thus, the emulated computation takes time $\Omega(r \cdot (L + g \cdot q)) = \Omega(r \cdot L + r \cdot
+g \cdot q)$. This means that the slowdown of the emulation in this case is $\Omega(\frac{r \cdot L + r \cdot g \cdot q}{r \cdot l + g \cdot q})$ It
+is interesting to note that since there is no local computation in this algorithm, the parameter $o$ does not appear anywhere in the analysis. \\
+
+\noindent \emph{Lemma:} Any deterministic step-by-step emulation of LogP on BSP can have arbitrarily large slowdown. (Proof of this is given in the
+proof of Theorem $3.9$ in \cite{Vlr03}) \\
+
+\noindent Now, suppose we have a work-preserving emulation $e$ of stalling LogP on BSP. Let the slowdown of $e$ be $\tau$. Now consider 
+$e$ applied to the above algorithm. We let $r = \omega(\tau), \; r \cdot l = o(g \cdot q)$. Furthermore, assume $l \leq L$, which is not
+unreasonable because $l$ accounts for latency while $L$ accounts for latency and synchronization.
+The work done by the LogP computation is $\Theta(g \cdot q \cdot p)$.
+In this case, the emulation takes time $\Omega(r \cdot g \cdot q)$. Recall that the BSP has $1/\tau \cdot p$ processors, so the work of the emulated
+algorithm is $\Theta(r \cdot g \cdot q \cdot \frac{p}{\tau}) = \omega(g \cdot q \cdot p)$. But this means that $e$ is not work-preserving, so there
+can be no work-preserving emulation of stalling LogP on BSP.
+
+
 \newpage
 \singlespace
 \begin{thebibliography}{9}
