@@ -265,6 +265,8 @@ Consider the following computation, to be run on a LogP with $p = r \cdot (q + 1
 group of $r$ processors ($p_{i, j} \mbox{ for } 1 \leq i \leq r$ denotes the $j$th processor in group $i$; and $P_i$ denotes the $i$th processor in
 the group with $r$ processors):
 
+
+\newpage
 \noindent\textbf{pfor} $1 \leq j \leq r$ \\
 \indent $p_{1, j}$ sends a message to processor $p_{2, j}$ \\
 \indent $p_{1, j}$ sends a message to processor $P_1$\\
@@ -279,7 +281,7 @@ the group with $r$ processors):
 \indent \indent \textbf{end} \\
 \indent \textbf{end} \\
 \textbf{end} \\
-
+\newpage
 \noindent \emph{Claim:} The above computation takes time $O(r \cdot l + g \cdot q)$ on the LogP, but when emulated on the BSP takes time 
 $\Omega (r \cdot (L + g \cdot q)) $.
 
@@ -316,6 +318,7 @@ can be no work-preserving emulation of stalling LogP on BSP.
 \bibitem[4]{Vlr97} V. Ramachandran. ``A General Purpose Shared Memory Model for Parallel Computation" Algorithms for Parallel Processing, vol. 105. IMA
 Volumes in Mathematics and Its Applications
 \bibitem[5]{Gib96} P. B. Gibbons. ``What Good are Shared Memory Models?" (1996) ICPP Workshop on Challenges for Parallel Processing
+\bibitem[6]{Bil99} G. Bilardi et. al. ``BSP versus LogP" (1999) Algorithmica 
 \end{thebibliography}
 
 \end{document}
