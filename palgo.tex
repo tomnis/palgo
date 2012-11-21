@@ -220,7 +220,7 @@ to know if QSM is applicable.
 
 % theorem tomas will present
 \newpage
-\section{Emulation of LogP on BSP}
+\section{Emulation of LogP on BSP (Tomas presentation)}
 
 \emph{Theorem 1:}
 There is a deterministic work-preserving emulation of a p-processor non-stalling LogP on BSP with slowdown $O(L/l)$.
@@ -308,6 +308,20 @@ algorithm is $\Theta(r \cdot g \cdot q \cdot \frac{p}{\tau}) = \omega(g \cdot q 
 can be no work-preserving emulation of stalling LogP on BSP.
 
 
+
+\section{Research attempts}
+We consider two versions of the pointer jumping problem on the LogP framework. First is the version of pointer jumping with a single tree, and second is the
+version of pointer jumping in a forest. On the PRAM the algo runs in $O(log \; n)$ time, because even in the worst case when the tree is highly unbalanced the
+height of the tree decreases by a factor of two in each iteration. In programming for the LogP framework we must minimize the communication cost to avoid a
+stalling program. Note that since the formulation of the problem supposes that only parent pointers are available, each node must ask its parent for the value
+of its grandparent. If there is a high branching factor ($ > \lceil L/G \rceil$) this will cause a stall since the parent will be receiving messages from all
+its children. Similarly, there will be a second stall when the parent sends the identity of the grandparent to all the children. We know from \cite{Kar93} how
+to optimally perform several different versions (one to all, all to all, etc) of broadcasting on the LogP model, 
+so what if we were able to take advantage of this? The root node will know that it is the root because its parent pointer will be pointing to itself. 
+If we are considering the forest version of the problem, it is not the case that all nodes should in the end
+result point to the same node, so we cannot simply broadcast. However, in the case of the single tree, perhaps by performing optimal broadcasting rather than
+standard pointer jumping we can attain some sort of speedup relative to the standard algorithm. However, we were not able to show that this is the case.
+
 \newpage
 \singlespace
 \begin{thebibliography}{9}
@@ -318,7 +332,10 @@ can be no work-preserving emulation of stalling LogP on BSP.
 \bibitem[4]{Vlr97} V. Ramachandran. ``A General Purpose Shared Memory Model for Parallel Computation" Algorithms for Parallel Processing, vol. 105. IMA
 Volumes in Mathematics and Its Applications
 \bibitem[5]{Gib96} P. B. Gibbons. ``What Good are Shared Memory Models?" (1996) ICPP Workshop on Challenges for Parallel Processing
-\bibitem[6]{Bil99} G. Bilardi et. al. ``BSP versus LogP" (1999) Algorithmica 
+\bibitem[6]{Bil99} G. Bilardi, et. al. ``BSP versus LogP" (1999) Algorithmica 
+\bibitem[7]{Kar93} R. M. Karp, et. al. ``Optimal Broadcast and Summation on LogP" (1993) Proceedings of the fifth annual ACM symposium on Parallel algorithms
+and architectures 
+
 \end{thebibliography}
 
 \end{document}
